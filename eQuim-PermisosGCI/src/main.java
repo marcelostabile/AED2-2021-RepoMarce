@@ -1,5 +1,4 @@
-import appGCI.AplicacionGCI;
-import appGCI.SeguridadGCI;
+import appGCI.*;
 import archivos.*;
 import busqueda.*;
 import clasificacion.*;
