@@ -2,8 +2,6 @@ package appGCI;
 
 import java.util.ArrayList;
 
-import com.graphbuilder.struc.LinkedList;
-
 import archivos.ManejadorArchivosExcel;
 
 public class SeguridadGCI {
