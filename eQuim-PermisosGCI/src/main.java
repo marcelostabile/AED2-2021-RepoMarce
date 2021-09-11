@@ -1,3 +1,5 @@
+import appGCI.AplicacionGCI;
+import appGCI.SeguridadGCI;
 import archivos.*;
 import busqueda.*;
 import clasificacion.*;
@@ -11,55 +13,57 @@ public class main {
         /**
          * Listas de entrada.
          */
-        int[] miLista = {89, 3, 79, 43, 5, 67, 13, 61, 17, 31, 37, 47, 29, 53, 23, 2, 59, 71, 11, 73, 19, 83, 7, 41, 97};
-        int[] miListaOrdenada = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-
-
-        /**
-         * MÉTODOS DE BÚSQUEDA.
-         */
-        System.out.println("MÉTODOS DE BÚSQUEDA\n");
-
-
-        /**
-         * Búsqueda Lineal.
-         */
-        System.out.println("Búsqueda Lineal\n");
-        System.out.println("Búsqueda 17: " + Busqueda.busquedaLineal(17, miLista));
-        System.out.println("Búsqueda 25: " + Busqueda.busquedaLineal(25, miLista));
-
-
-        /**
-         * Búsqueda Binaria.
-         */
-        System.out.println("Búsqueda Binaria\n");
-        System.out.println("Búsqueda 17: " + Busqueda.busquedaBinaria(17, miLista));
-        System.out.println("Búsqueda 25: " + Busqueda.busquedaBinaria(25, miLista));
-
-
-        /**
-         * MÉTODOS DE ORDENAMIENTO.
-         */
-        System.out.println("MÉTODOS DE ORDENAMIENTO\n");
+        // int[] miLista = {89, 3, 79, 43, 5, 67, 13, 61, 17, 31, 37, 47, 29, 53, 23, 2, 59, 71, 11, 73, 19, 83, 7, 41, 97};
+        // int[] miListaOrdenada = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
 
         
-        /**
-         * Inserción Directa (1).
-         */
-        System.out.println("Inserción Directa - 1\n");
-        Insercion.ordenaInsercionDirecta(miLista);
-        imprimirLista(miLista);
+        SeguridadGCI.armarReportePermisos();
+    //     /**
+    //      * MÉTODOS DE BÚSQUEDA.
+    //      */
+    //     System.out.println("MÉTODOS DE BÚSQUEDA\n");
 
 
-        /**
-         * Inserción Directa (2).
-         */
-        System.out.println("Inserción Directa - 2\n");
-        int[] miListaResultado = Insercion.InsercionDirecta(miLista);
-        imprimirLista(miListaResultado);
+    //     /**
+    //      * Búsqueda Lineal.
+    //      */
+    //     System.out.println("Búsqueda Lineal\n");
+    //     System.out.println("Búsqueda 17: " + Busqueda.busquedaLineal(17, miLista));
+    //     System.out.println("Búsqueda 25: " + Busqueda.busquedaLineal(25, miLista));
+
+
+    //     /**
+    //      * Búsqueda Binaria.
+    //      */
+    //     System.out.println("Búsqueda Binaria\n");
+    //     System.out.println("Búsqueda 17: " + Busqueda.busquedaBinaria(17, miLista));
+    //     System.out.println("Búsqueda 25: " + Busqueda.busquedaBinaria(25, miLista));
+
+
+    //     /**
+    //      * MÉTODOS DE ORDENAMIENTO.
+    //      */
+    //     System.out.println("MÉTODOS DE ORDENAMIENTO\n");
+
+        
+    //     /**
+    //      * Inserción Directa (1).
+    //      */
+    //     System.out.println("Inserción Directa - 1\n");
+    //     Insercion.ordenaInsercionDirecta(miLista);
+    //     imprimirLista(miLista);
+
+
+    //     /**
+    //      * Inserción Directa (2).
+    //      */
+    //     System.out.println("Inserción Directa - 2\n");
+    //     int[] miListaResultado = Insercion.InsercionDirecta(miLista);
+    //     imprimirLista(miListaResultado);
+
+    // }
 
     }
-
 
     /**
      * Imprime por pantalla el contenido de una lista.
