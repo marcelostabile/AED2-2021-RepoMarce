@@ -1,3 +1,0 @@
-Ocurrencias del patron KPL: ,338,1,430,395,479,96,167,575,317,519
-Ocurrencias del patron PQL: 
-Ocurrencias del patron CIEAL: ,463,17,601

@@ -44,32 +44,34 @@ public class Heapsort {
      */
     private static void desplazaElemento(int[] lista, int primero, int ultimo) {
         
-        int actual = primero;
-        while (actual <= (ultimo / 2) ) {
+        if (primero < ultimo) {
+            int actual = primero;
+            while (actual <= ultimo / 2 ) {
 
-            if (ultimo == (actual * 2) ) {                  // Actual tiene un hijo.
-                if (lista[actual] > lista[actual * 2]) {
-                    intercambiar(lista, actual, actual * 2);
-                }
-                actual = ultimo;
-
-            } else {                                        // Actual tiene dos hijos.
-                // Determinar cúal es el hijo menor.
-                int hijoUno = lista[actual * 2];
-                int hijoDos = lista[actual * 2 + 1];
-                // Indice del hijo menor.
-                int menor = 0;
-                if (hijoUno < hijoDos) {
-                    menor = actual * 2;
-                } else {
-                    menor = actual * 2 + 1;
-                }
-                // Comparamos con el padre y si corresponde intercambiamos.
-                if (lista[actual] < lista[menor]) {
-                    intercambiar(lista, actual, menor);
-                    actual = menor;
-                } else {
+                if (ultimo == actual * 2 ) {                  // Actual tiene un hijo.
+                    if (lista[actual] > lista[actual * 2]) {
+                        intercambiar(lista, actual, actual * 2);
+                    }
                     actual = ultimo;
+
+                } else {                                        // Actual tiene dos hijos.
+                    // Determinar cúal es el hijo menor.
+                    int hijoUno = lista[actual * 2];
+                    int hijoDos = lista[actual * 2 + 1];
+                    // Indice del hijo menor.
+                    int menor = 0;
+                    if (hijoUno < hijoDos) {
+                        menor = actual * 2;
+                    } else {
+                        menor = actual * 2 + 1;
+                    }
+                    // Comparamos con el padre y si corresponde intercambiamos.
+                    if (lista[actual] < lista[menor]) {
+                        intercambiar(lista, actual, menor);
+                        actual = menor;
+                    } else {
+                        actual = ultimo;
+                    }
                 }
             }
         }
