@@ -15,16 +15,20 @@ public class SeguridadGCI {
      */
     public static void armarReportePermisos() {
 
-        ArrayList<String[]> arrUsuarios = ManejadorArchivosExcel.leerArchivoExcel("CltaGCI_1_Usuarios.xlsx");
-        ArrayList<String[]> arrTareas = ManejadorArchivosExcel.leerArchivoExcel("CltaGCI_2_Tareas.xlsx");
-        ArrayList<String[]> arrTransacciones = ManejadorArchivosExcel.leerArchivoExcel("CltaGCI_3_Transacciones.xlsx");
-        ArrayList<String[]> arrFranjas = ManejadorArchivosExcel.leerArchivoExcel("CltaGCI_4_Franjas.xlsx");
+        String[] lstUsuarios = ManejadorArchivosExcel.leerArchivoExcel("CltaGCI_1_Usuarios.xlsx");
+        String[] lstTareas = ManejadorArchivosExcel.leerArchivoExcel("CltaGCI_2_Tareas.xlsx");
+        String[] lstTransacciones = ManejadorArchivosExcel.leerArchivoExcel("CltaGCI_3_Transacciones.xlsx");
+        String[] lstFranjas = ManejadorArchivosExcel.leerArchivoExcel("CltaGCI_4_Franjas.xlsx");
 
-        System.out.println("Usuarios: " + arrUsuarios.size());
-        System.out.println("Tareas: " + arrTareas.size());
-        System.out.println("Transacciones: " + arrTransacciones.size());
-        System.out.println("Franjas: " + arrFranjas.size());
+        System.out.println("Usuarios: " + lstUsuarios.length);
+        System.out.println("Tareas: " + lstTareas.length);
+        System.out.println("Transacciones: " + lstTransacciones.length);
+        System.out.println("Franjas: " + lstFranjas.length);
 
+       
+
+
+        /**
         // Listar usuarios.
         for (String[] reg : arrUsuarios) {
             Usuario usuario = new Usuario(reg[0], reg[1]);
@@ -44,7 +48,7 @@ public class SeguridadGCI {
             listaPermisos.addToTail(transaccion);
         }
         System.out.println("Lista Permisos: " + listaPermisos.size());
-        
+        */
 
         
     }

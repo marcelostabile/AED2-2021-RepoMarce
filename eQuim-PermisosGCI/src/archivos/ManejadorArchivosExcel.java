@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  
 public class ManejadorArchivosExcel {
 
-	public static ArrayList<String[]>  leerArchivoExcel(String nombreArchivo) {
+	public static String[] leerArchivoExcel(String nombreArchivo) {
 
         // ruta de entrada.
         String rutaEntrada = "src\\entrada\\";
@@ -57,6 +57,6 @@ public class ManejadorArchivosExcel {
             e.printStackTrace();
         }
 		// retornamos la lista resultado.
-		return listaResultado;
+		return listaResultado.toArray(new String[0]);
     }
 }
