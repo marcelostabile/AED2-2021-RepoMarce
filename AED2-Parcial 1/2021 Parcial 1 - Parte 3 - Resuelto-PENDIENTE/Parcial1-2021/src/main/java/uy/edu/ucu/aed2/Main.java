@@ -9,17 +9,18 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        // Creo el trie.
         TArbolTrie miTrie = new TArbolTrie();
 
+        // Leer la secuencia del mensaje.
         String[] secuencia = ManejadorArchivosGenerico.leerArchivo("./src/main/java/uy/edu/ucu/aed2/mensaje.txt");
         
-        // GENERAR TODOS LOS SUFIJOS E INSERTARLOS EN EL TRIE, CUIDANDO DE REGISTRAR LA POSICIÓN 
-        // DE INICIO DE CADA UNO
-        int indice = secuencia[0].length()-1;
+        // Instanciar el indice, largo de la secuencia menos uno.
+        int indice = secuencia[0].length() - 1;
 
+        // 
         while (indice >= 0) {
-
-            String sufijo ="";
+            String sufijo = "";
             for (int i = indice; i < secuencia[0].length(); i++) {
                 sufijo += secuencia[0].charAt(i);
             }

@@ -4,23 +4,25 @@ import java.util.*;
 
 public class TNodoTrie {
     
+    public int CARAC_EN_ALFABETO = 2;    
     public TNodoTrie[] hijos;
     public boolean finPalabra;
     public int comienzaPalabra;
-    public int items = 1000;
+
 
     public TNodoTrie() {
-        hijos = new TNodoTrie[items];
+        hijos = new TNodoTrie[CARAC_EN_ALFABETO];
         finPalabra = false;
     }
 
-    public void insertar(String elemento, int posicion) {
+    public void insertar(String unaPalabra, int posicion) {
         TNodoTrie actual = this;
-        for (int i=0; i < elemento.length(); i++){
-            if (actual.hijos[i] == null){
-                actual.hijos[i] = new TNodoTrie();
+        for (int i=0; i < unaPalabra.length(); i++){
+            int indice = obtenerIndice(unaPalabra.charAt(i));
+            if (actual.hijos[indice] == null){
+                actual.hijos[indice] = new TNodoTrie();
             }
-            actual = actual.hijos[i];
+            actual = actual.hijos[indice];
         }
         actual.finPalabra = true;
         actual.comienzaPalabra = posicion;
@@ -31,26 +33,37 @@ public class TNodoTrie {
 
         // nodo actual.
         TNodoTrie actual = this;
-        // recorrer el padron.
+        // recorrer el patron.
         for (int i = 0; i < patron.length(); i++) { 
+            int indice = obtenerIndice(patron.charAt(i));
             // hijo nulo.
-            if (actual.hijos[i] == null)
+            if (actual.hijos[indice] == null)
                 return;
-            actual = actual.hijos[i];
+            actual = actual.hijos[indice];
         }
         actual.recorrer(actual,resultados);
     }
 
-    private void recorrer(TNodoTrie actual, LinkedList<Integer> resultados) {
+    private void recorrer(TNodoTrie unNodo, LinkedList<Integer> resultados) {
+        TNodoTrie actual = unNodo;
         if (actual.finPalabra){
             resultados.add(actual.comienzaPalabra);
         }
-        for (int i = 0; i < items; i++){
+        for (int i = 0; i < CARAC_EN_ALFABETO; i++){
             if (actual.hijos[i] != null){
                 actual.hijos[i].recorrer(actual.hijos[i], resultados);
             }  
         }
     }
-
+    public int obtenerIndice(char unChar){
+        switch ((int) unChar){
+            case '0':
+                return 0;
+            case '1':
+                return 1;
+            default:
+                return -1;
+        }
+    }
 
 }
