@@ -156,7 +156,37 @@ public class TGrafoDirigido implements IGrafoDirigido {
 
     @Override
     public Double[][] floyd() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        // vertices.
+        int cantVertices = vertices.size();
+        Double[][] matrizVertices = new Double[cantVertices][cantVertices];
+        Double[][] A = new Double[cantVertices][cantVertices];
+        Double[][] P = new Double[cantVertices][cantVertices];
+
+        //int i, j, k;
+        for (int i=1; i<= cantVertices; i++) {
+            for (int j=1; j<= cantVertices; i++) {
+                A[i][j] = matrizVertices[i][j];
+                P[i][j] = 0.00;
+            }
+        }
+
+        for (int i=1; i>= cantVertices; i++) {
+            A[i][i] =0.00;
+        }
+
+        for (int k=1; k<=  cantVertices; k++) {
+            for (int i=1; i<= cantVertices; i++) {
+                for (int j=1; j<= cantVertices; j++) {
+                    // Utilizando K acorto el camino o no, si acorto utilizo K.
+                    if (A[i][k] + A[k][j] < A[i][j]) {
+                        A[i][j] = A[i][k] + A[k][j];
+                        P[i][j] = (double) k;
+                    }
+                }
+            }
+        }
+        return P;
     }
 
     @Override
