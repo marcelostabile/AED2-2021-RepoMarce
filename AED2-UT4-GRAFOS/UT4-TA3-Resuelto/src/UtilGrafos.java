@@ -26,10 +26,10 @@ public class UtilGrafos {
         for (int i = 0; i < matrizCostos.length; i++) {
             for (int j = 0; j < matrizCostos.length; j++) {
                 if (i == j) {
-                    // Si coincide i con j el costo es cero (caso es el mismo vertice).
+                    // Inicializando: Si coincide i con j el costo es cero (caso es el mismo vertice).
                     matrizCostos[i][j] = 0.0;
                 } else {
-                    // Si no es el mismo vertice, se asigna un valor MAX_VALUE.
+                    // Inicializando: Si no se trata del mismo vertice, se inicializa con valor MAX_VALUE.
                     matrizCostos[i][j] = Double.MAX_VALUE;
                 }
             }
@@ -112,20 +112,34 @@ public class UtilGrafos {
         }
     }
 
+
+    /**
+     * Imprime la matriz de costos.
+     * @param matriz
+     * @param vertices
+     * @param titulo
+     */
     public static void imprimirMatrizMejorado(Comparable[][] matriz, Map<Comparable, TVertice> vertices, String titulo) {
+
+        // Verrificamos que existen los vertices y la matriz tiene el mismo tamaño que las claves.
         if (vertices != null && matriz.length == vertices.keySet().size()) {
 
+            // Almacenamos las etiquetas de los vertices en un arreglo.
             Comparable[] etiquetas = vertices.keySet().toArray(new Comparable[vertices.keySet().size()]);
+
+            // Obtenemos el largo de la mayor etiqueta.
             int etiquetaMasLarga = stringMasLargo(etiquetas);
             int datoMasLargo = 0;
             String infinito = "Inf";
             String nulo = "Nulo";
             int separacionEntreColumnas = 3;
 
+            // Arreglo con los datos.
             Comparable[] datos = new Comparable[matriz.length];
 
             for (int i = 0; i < matriz.length; i++) {
                 for (int j = 0; j < matriz.length; j++) {
+
                     if (matriz[i][j] == null) {
                         datos[j] = nulo;
                     } else if (matriz[i][j].compareTo(Double.MAX_VALUE) == 0) {
@@ -139,6 +153,7 @@ public class UtilGrafos {
                 }
             }
 
+            // Largo de los columnas.
             int largo = Math.max(etiquetaMasLarga, datoMasLargo) + separacionEntreColumnas;
 
             for (int i = 0; i < etiquetas.length; i++) {
@@ -151,11 +166,13 @@ public class UtilGrafos {
             String separador = rellenar("", largo, ' ');
             String sepTitulo = rellenar("", tope, '*');
 
+            // Imprimir encabezado.
             System.out.println(sepTitulo);
             System.out.println(devolverCentrado(titulo, tope));
             System.out.println(sepTitulo);
             System.out.println(linea);
 
+            // Imprimir etiquetas.
             System.out.print(separador);
             for (int i = 0; i < matriz.length; i++) {
                 System.out.print(etiquetas[i]);
@@ -164,6 +181,7 @@ public class UtilGrafos {
             System.out.println();
             System.out.println(linea);
 
+            // Imprimir lineas.
             for (int i = 0; i < matriz.length; i++) {
                 System.out.print(etiquetas[i]);
                 for (int j = 0; j < matriz.length; j++) {
@@ -183,6 +201,14 @@ public class UtilGrafos {
         System.out.println();
     }
 
+
+    /**
+     * Recibe un texto y completa la linea con el relleno hasta alcanzar el largo total.
+     * @param textoARellenar
+     * @param largoTotal
+     * @param relleno
+     * @return
+     */
     public static String rellenar(String textoARellenar, int largoTotal, char relleno) {
         while (textoARellenar.length() < largoTotal) {
             textoARellenar += relleno;
@@ -190,13 +216,23 @@ public class UtilGrafos {
         return textoARellenar;
     }
 
+    
+    /**
+     * Devuelve el valor (largo) de la mayor etiqueta.
+     * 
+     * @param etiquetas
+     * @return
+     */
     public static int stringMasLargo(Comparable[] etiquetas) {
+        // Inicializa "mayor" con el largo de la primera etiqueta del arreglo. 
         int mayor = etiquetas[0].toString().length();
+        // Recorre el arreglo evualuando para cada etiqueta su largo respecto al mayor registrado, si es mayor almacena el nuevo largo mayor.
         for (int i = 1; i < etiquetas.length; i++) {
             if (etiquetas[i].toString().length() > mayor) {
                 mayor = etiquetas[i].toString().length();
             }
         }
+        // Retorna un entero correspondiente al mayor largo.
         return mayor;
     }
 

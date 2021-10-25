@@ -78,14 +78,12 @@ public class TGrafoDirigido implements IGrafoDirigido {
     }
 
     /**
-     * Metodo encargado de insertar una arista en el grafo (con un cierto
-     * costo), dado su vertice origen y destino.- Para que la arista sea valida,
-     * se deben cumplir los siguientes casos: 1) Las etiquetas pasadas por
-     * parametros son v�lidas.- 2) Los vertices (origen y destino) existen
-     * dentro del grafo.- 3) No es posible ingresar una arista ya existente
-     * (miso origen y mismo destino, aunque el costo sea diferente).- 4) El
-     * costo debe ser mayor que 0.
-     *
+     * Metodo encargado de insertar una arista en el grafo (con un cierto costo), dado su vertice origen y destino.- 
+     * Para que la arista sea valida, se deben cumplir los siguientes casos: 
+     * 1) Las etiquetas pasadas por parametros son v�lidas.- 
+     * 2) Los vertices (origen y destino) existen dentro del grafo.- 
+     * 3) No es posible ingresar una arista ya existente (mismo origen y mismo destino, aunque el costo sea diferente).- 
+     * 4) El costo debe ser mayor que 0.
      * @return True si se pudo insertar la adyacencia, false en caso contrario
      */
     public boolean insertarArista(TArista arista) {

@@ -12,18 +12,22 @@ public class PruebaGrafo {
         // Crear una matriz de costos a partir de los vertices.
         Double[][] matriz = UtilGrafos.obtenerMatrizCostos(gd.getVertices());
 
-
-
-        
+        // Imprime la matriz de costos.
         UtilGrafos.imprimirMatrizMejorado(matriz, gd.getVertices(), "Matriz");
+
+        // *** IMPLEMENTAR TA-03 Floyd
         Double[][] mfloyd = gd.floyd();
+
         UtilGrafos.imprimirMatrizMejorado(mfloyd, gd.getVertices(), "Matriz luego de FLOYD");
-        for (int i = 0; i < etiquetasarray.length; i++) {
-            System.out.println("excentricidad de " + etiquetasarray[i] + " : " + gd.obtenerExcentricidad((Comparable) etiquetasarray[i]));
-        }
-        System.out.println();
-        System.out.println("Centro del grafo: " + gd.centroDelGrafo());
-       
-       
+
+        // *** IMPLEMENTAR TA-03 Excentricidad
+        // for (int i = 0; i < etiquetasarray.length; i++) {
+        //     System.out.println("excentricidad de " + etiquetasarray[i] + " : " + gd.obtenerExcentricidad((Comparable) etiquetasarray[i]));
+        // }
+
+        // *** IMPLEMENTAR TA-03 Centro del grafo.
+        // System.out.println();
+        // System.out.println("Centro del grafo: " + gd.centroDelGrafo());
+
     }
 }
